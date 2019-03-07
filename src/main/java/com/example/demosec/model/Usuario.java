@@ -14,11 +14,12 @@ import java.util.Set;
 @Table(name = "usuario")
 public class Usuario {
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+//    @Autowired
+//    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+//    @Column(name="id_usuario")
     private Long id;
 
     @Column(length = 200, nullable = false)
@@ -43,7 +44,7 @@ public class Usuario {
             inverseJoinColumns = {@JoinColumn(name = "id_papel")})
     private Set<Papel> papeis = new HashSet<>();
 
-    public void setSenha(String senha) {
-        this.senha = bCryptPasswordEncoder.encode(senha);
-    }
+//    public void setSenha(String senha) {
+//        this.senha = bCryptPasswordEncoder.encode(senha);
+//    }
 }

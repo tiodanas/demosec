@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -17,5 +18,9 @@ public class UsuarioService {
 
     public List<Usuario> findAll() {
         return usuarioRepository.findAll(new Sort(Sort.Direction.ASC, "nome"));
+    }
+
+    public Optional<Usuario> findByCpf(Long cpf) {
+        return usuarioRepository.findByCpf(cpf);
     }
 }

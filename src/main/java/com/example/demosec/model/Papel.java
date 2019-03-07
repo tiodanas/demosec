@@ -13,6 +13,7 @@ import javax.persistence.Table;
 public class Papel {
 
     @Id
+//    @Column(name="id_papel")
     private Long id;
 
     @Column(length = 200, nullable = false, unique = true)

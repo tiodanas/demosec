@@ -7,7 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class AuthenticationProviderService implements AuthenticationProvider /*implements UserDetailsService*/ {
+public class AuthenticationProviderService implements AuthenticationProvider {
 
     @Autowired
     UsuarioService usuarioService;
