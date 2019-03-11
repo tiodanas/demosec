@@ -14,26 +14,23 @@ import java.util.Set;
 @Table(name = "usuario")
 public class Usuario {
 
-//    @Autowired
-//    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-//    @Column(name="id_usuario")
     private Long id;
 
-    @Column(length = 200, nullable = false)
-    private String nome;
+    @Column(length = 200, nullable = false, unique = true)
+    private String username;
 
+    @JsonIgnore
+    @Column(length = 200, nullable = false)
+    private String password;
+
+/*
     @Column(length = 200, nullable = false, unique = true)
     private String email;
 
     @Column(length = 11, nullable = false, unique = true)
     private Long cpf;
-
-    @JsonIgnore
-    @Column(length = 200, nullable = false)
-    private String senha;
 
     @Column(nullable = false)
     private Boolean ativo = true;
@@ -43,8 +40,5 @@ public class Usuario {
             joinColumns = {@JoinColumn(name = "id_usuario")},
             inverseJoinColumns = {@JoinColumn(name = "id_papel")})
     private Set<Papel> papeis = new HashSet<>();
-
-//    public void setSenha(String senha) {
-//        this.senha = bCryptPasswordEncoder.encode(senha);
-//    }
+*/
 }

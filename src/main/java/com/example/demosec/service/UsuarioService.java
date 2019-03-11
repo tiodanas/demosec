@@ -17,10 +17,13 @@ public class UsuarioService {
     UsuarioRepository usuarioRepository;
 
     public List<Usuario> findAll() {
-        return usuarioRepository.findAll(new Sort(Sort.Direction.ASC, "nome"));
+//        return usuarioRepository.findAll(new Sort(Sort.Direction.ASC, "nome"));
+        return usuarioRepository.findAll();
     }
 
-    public Optional<Usuario> findByCpf(Long cpf) {
-        return usuarioRepository.findByCpf(cpf);
+//    public Optional<Usuario> findByCpf(Long cpf) { return usuarioRepository.findByCpf(cpf);}
+
+    public Usuario findByUsername(String username) {
+        return usuarioRepository.findByUsername(username);
     }
 }

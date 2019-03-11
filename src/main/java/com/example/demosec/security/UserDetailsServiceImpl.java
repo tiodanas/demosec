@@ -22,42 +22,22 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     UsuarioService usuarioService;
 
-
-    /**
-     * @param username deve ser o cpf, sem máscara - somente os números
-     * @return
-     * @throws UsernameNotFoundException
-     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Long cpf = null;
-        try {
-            cpf = Long.parseLong(username);
-        } catch (Exception ex) {
-            throw new UsernameNotFoundException("CPF não é um valor numérico");
-        }
+//        Long cpf = null;
+//        try {
+//            cpf = Long.parseLong(username);
+//        } catch (Exception ex) {
+//            throw new UsernameNotFoundException("CPF não é um valor numérico");
+//        }
 
-        Optional<Usuario> usuarioOptional = usuarioService.findByCpf(cpf);
+        Usuario usuario = usuarioService.findByUsername(username);
 
-        if (!usuarioOptional.isPresent()) {
+        if (usuario == null) {
             throw new UsernameNotFoundException("Usuário não encontrado");
         }
 
-        Usuario usuario = usuarioOptional.get();
-
-        return new User(usuario.getCpf().toString(), usuario.getSenha(), getGrantedAuthorities(usuario));
-    }
-
-    private List<GrantedAuthority> getGrantedAuthorities(Usuario usuario){
-
-        List<GrantedAuthority> authorities = new ArrayList<>();
-
-        for(Papel papel : usuario.getPapeis()){
-//            System.out.println("UserProfile : " + papel);
-            authorities.add(new SimpleGrantedAuthority(papel.getRole()));
-        }
-//        System.out.print("authorities :" + authorities);
-        return authorities;
+        return new UserDetailsImpl(usuario);
     }
 }
