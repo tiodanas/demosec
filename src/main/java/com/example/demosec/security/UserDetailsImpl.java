@@ -20,11 +20,16 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+
+        System.out.println("===== UserDetailsImpl.getAuthorities()");
+        System.out.println("===== usuario " + this.usuario);
+
         List<GrantedAuthority> authorities = new ArrayList<>();
-//        for(Papel papel : usuario.getPapeis()){
-//            authorities.add(new SimpleGrantedAuthority(papel.getRole()));
-//        }
-        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        for(Papel papel : this.usuario.getPapeis()){
+            System.out.println("===== usuario " + this.usuario.getUsername() + ", papel " + papel.getRole());
+            authorities.add(new SimpleGrantedAuthority(papel.getRole()));
+        }
+//        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         return authorities;
     }
 

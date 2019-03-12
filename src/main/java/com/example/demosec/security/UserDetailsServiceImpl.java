@@ -25,6 +25,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+        System.out.println("===== UserDetailsServiceImpl.loadUserByUsername()");
+        System.out.println("===== username " + username);
+
 //        Long cpf = null;
 //        try {
 //            cpf = Long.parseLong(username);
@@ -33,6 +36,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 //        }
 
         Usuario usuario = usuarioService.findByUsername(username);
+        // System.out.printf("===== usuario " + usuario.getUsername());
+        // System.out.printf("===== usuario papeis " + usuario.getPapeis());
 
         if (usuario == null) {
             throw new UsernameNotFoundException("Usuário não encontrado");
