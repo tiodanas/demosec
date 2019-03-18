@@ -22,11 +22,11 @@ INSERT INTO papel ( id, role ) VALUES
 -- oprecional, 654321 = $2a$10$J5fMTlhk3lxXYnNsNmhM8ey2HO.mOsYIm0zNgAG.bn0NhetiQKQX.
 -- auditor, 112233 = $2a$10$E.Hrrl9zFee3opU9kBI8we8mi9s7wntwk6z8JlYtkr.saoDLxQll.
 --
-INSERT INTO usuario ( username, password ) VALUES
-( 'admin', '$2a$10$FuufzBhVu1MhCy7y9xI21OcuIhcEjF9LEFfGf/0gF6yPEWNZ2vB2a' ),
-( 'gestor', '$2a$10$vwZ5CTwO3sbdueXV1hpcm.cRc2eZ/YtstG.P9j4Ho4vr.n.2i9yPK' ),
-( 'operacional','$2a$10$J5fMTlhk3lxXYnNsNmhM8ey2HO.mOsYIm0zNgAG.bn0NhetiQKQX.' ),
-( 'auditor', '$2a$10$E.Hrrl9zFee3opU9kBI8we8mi9s7wntwk6z8JlYtkr.saoDLxQll.' ),
+INSERT INTO usuario ( username, password, cpf, email, matricula, ativo ) VALUES
+( 'admin', '$2a$10$FuufzBhVu1MhCy7y9xI21OcuIhcEjF9LEFfGf/0gF6yPEWNZ2vB2a', 48458150018, '48458150018@mailinator.com', '123.456-89', 1 ),
+( 'gestor', '$2a$10$vwZ5CTwO3sbdueXV1hpcm.cRc2eZ/YtstG.P9j4Ho4vr.n.2i9yPK', 52587641098, '52587641098@mailinator.com', '0124-5', 1 ),
+( 'operacional','$2a$10$J5fMTlhk3lxXYnNsNmhM8ey2HO.mOsYIm0zNgAG.bn0NhetiQKQX.', 52899829068, '52899829068@mailinator.com', '001523-5', 1 ),
+( 'auditor', '$2a$10$E.Hrrl9zFee3opU9kBI8we8mi9s7wntwk6z8JlYtkr.saoDLxQll.', 85085070038, '85085070038@mailinator.com', '2400-6', 1 ),
 ;
 
 

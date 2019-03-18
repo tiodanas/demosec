@@ -28,4 +28,12 @@ public class UsuarioController {
     @GetMapping("/papeis")
     @PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
     public List<Papel> findAllPapeis() { return papelService.findAll(); }
+
+    @GetMapping("/total")
+    @PreAuthorize("hasRole('ROLE_GESTOR')")
+    public Integer getTotalPapeis() { return papelService.findAll().size(); }
+
+    @GetMapping("/auditor")
+    @PreAuthorize("hasRole('ROLE_AUDITOR')")
+    public Integer getTotalUsuarios() { return usuarioService.findAll().size(); }
 }

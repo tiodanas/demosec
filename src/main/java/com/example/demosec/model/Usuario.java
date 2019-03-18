@@ -26,16 +26,17 @@ public class Usuario {
     @Column(length = 200, nullable = false)
     private String password;
 
-/*
     @Column(length = 200, nullable = false, unique = true)
     private String email;
 
     @Column(length = 11, nullable = false, unique = true)
     private Long cpf;
 
+    @Column(length = 50)
+    private String matricula;
+
     @Column(nullable = false)
     private Boolean ativo = true;
-*/
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
